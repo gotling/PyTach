@@ -16,7 +16,7 @@ def get_device(device):
 	}.get(device, "")
 
 def get_state(off):
-	if (off):
+	if off in ('off', 'OFF', 0):
 		return "13,39";
 	else: 
 		return "39,13";
