@@ -23,13 +23,16 @@ def load_settings(cwd):
     return pickle.load(f)
 
 usage = """
-pytach [nexa|multibrackets|yamaha] [command]
+pytach [--web|nexa|multibrackets|yamaha] [command]
 """
 
 def main():
     args = sys.argv
     if len(args) > 1:
-        if args[1] == 'nexa':
+        if args[1] == '--web':
+            import web
+            sys.exit(0)
+        elif args[1] == 'nexa':
             sub_command = nexa.build_command(args[2], args[3])
             command = itach.build_command(1, 1, sub_command)
         elif args[1] == 'multibrackets':
