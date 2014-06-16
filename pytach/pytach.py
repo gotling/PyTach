@@ -5,12 +5,12 @@ __author__="gotling"
 __date__ ="$Jun 15, 2014 09:09:38 PM$"
 
 import os
-import sys
+import sys; print sys.path
 import socket
 import pickle
-import pytach_nexa
-import pytach_multibrackets
-import pytach_yamaha_rx350 as yamaha
+import devices.nexa as nexa
+import devices.multibrackets as multibrackets
+import devices.yamaha_rx350 as yamaha
 
 meta_data='.pytach_settings'
 HOST = "192.168.0.22"
@@ -75,10 +75,10 @@ def main():
     args = sys.argv
     if len(args) > 1:
         if args[1] == 'nexa':
-            sub_command = pytach_nexa.build_command(args[2], args[3])
+            sub_command = nexa.build_command(args[2], args[3])
             command = build_command(1, 1, sub_command)
         elif args[1] == 'multibrackets':
-            sub_command = pytach_multibrackets.get_command(args[2])
+            sub_command = multibrackets.get_command(args[2])
             command = build_command(1, 1, sub_command)
         elif args[1] == 'yamaha':
             sub_command = yamaha.get_command(args[2])
