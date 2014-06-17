@@ -5,7 +5,7 @@ import itach
 import devices.nexa as nexa
 import devices.multibrackets as multibrackets
 import devices.yamaha_rx350 as yamaha
-from bottle import route, run
+from bottle import route, run, static_file
 
 def send(command):
     print ">", command
@@ -14,9 +14,13 @@ def send(command):
 
 @route('/')
 def hello():
-    return "PyTach Web Server is running!"
+    return static_file('main.html', root='web')
 
-@route('/device/<device:path>')
+@route('/static/<filename>')
+def static(filename):
+    return static_file(filename, root='web')
+
+@route('/device/<device:path>', method='POST')
 def device(device):
     print device
     device = device.split('/')
