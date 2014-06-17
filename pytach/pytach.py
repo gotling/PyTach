@@ -30,7 +30,7 @@ def main():
     args = sys.argv
     if len(args) > 1:
         if args[1] == '--web':
-            import web
+            import web.web as web
             sys.exit(0)
         elif args[1] == 'nexa':
             sub_command = nexa.build_command(args[2], args[3])

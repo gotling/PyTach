@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import string
-import itach
-import devices.nexa as nexa
-import devices.multibrackets as multibrackets
-import devices.yamaha_rx350 as yamaha
 from bottle import route, run, static_file
+
+import itach
+from devices import nexa as nexa
+from devices import multibrackets as multibrackets
+from devices import yamaha_rx350 as yamaha
 
 def send(command):
     print ">", command
@@ -14,11 +15,11 @@ def send(command):
 
 @route('/')
 def hello():
-    return static_file('main.html', root='web')
+    return static_file('main.html', root='web/static')
 
 @route('/static/<filename>')
 def static(filename):
-    return static_file(filename, root='web')
+    return static_file(filename, root='web/static')
 
 @route('/device/<device:path>', method='POST')
 def device(device):
