@@ -58,7 +58,7 @@ def main():
             sys.exit(0)
         elif arguments['nexa']:
             sub_command = nexa.build_command(arguments['<device>'], arguments['<command>'])
-            command = itach.build_command(1, 1, sub_command)
+            command = itach.build_command(1, 1, sub_command, 3)
         elif arguments['multibrackets']:
             sub_command = multibrackets.get_command(arguments['<command>'])
             command = itach.build_command(1, 1, sub_command)

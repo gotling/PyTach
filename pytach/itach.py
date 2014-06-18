@@ -5,13 +5,12 @@ import socket
 
 HOST = "192.168.0.22"
 PORT = 4998
-repeat = 3
 timeout = 2000
 module = 1
 connection = 1
 base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],";
 
-def build_command(module, connection, sub_command):
+def build_command(module, connection, sub_command, repeat=3):
     command = base_command + sub_command
     command = command.replace("[MODULE]", str(module))
     command = command.replace("[CONNECTION]", str(connection))

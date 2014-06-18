@@ -13,10 +13,10 @@ def get_device(device):
 		1: "13,39,13,39,13,39",
 		2: "39,13,13,39,13,39",
 		3: "13,39,13,39,39,13",
-	}.get(device, "")
+	}.get(int(device), "")
 
 def get_state(off):
 	if off in ('off', 'OFF', 0, True):
 		return "13,39";
-	else: 
+	else:
 		return "39,13";
