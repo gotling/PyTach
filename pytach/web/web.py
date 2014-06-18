@@ -35,7 +35,7 @@ def device(device):
             print 'Incorrect parameters'
     elif device[0] == 'multibrackets':
         if len(device) == 2:
-            sub_command = multibrackets.get_command(device[1])
+            sub_command = multibrackets.get_command_by_name(device[1])
             command = itach.build_command(1, 1, sub_command)
             send(command)
         else:
@@ -43,7 +43,7 @@ def device(device):
     elif device[0] == 'yamaha':
         print 'yamaha'
         if len(device) == 2:
-            sub_command = yamaha.get_command(device[1])
+            sub_command = yamaha.get_command_by_name(device[1])
             command = itach.build_command(1, 3, sub_command)
             send(command)
         else:

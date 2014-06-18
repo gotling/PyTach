@@ -6,14 +6,26 @@ dtv = "1,341,171,21,21,21,64,21,21,21,64,21,64,21,64,21,64,21,21,21,64,21,21,21,
 vol_down = "1,341,171,21,21,21,64,21,21,21,64,21,64,21,64,21,64,21,21,21,64,21,21,21,64,21,21,21,21,21,21,21,21,21,64,21,64,21,64,21,21,21,64,21,64,21,21,21,21,21,21,21,21,21,21,21,64,21,21,21,21,21,64,21,64,21,64,21,1525,341,86,21,3799"
 vol_up = "1,341,171,21,21,21,64,21,21,21,64,21,64,21,64,21,64,21,21,21,64,21,21,21,64,21,21,21,21,21,21,21,21,21,64,21,21,21,64,21,21,21,64,21,64,21,21,21,21,21,21,21,64,21,21,21,64,21,21,21,21,21,64,21,64,21,64,21,1525,341,86,21,3799"
 
-def get_command(command):
-	if (command == "stereo"):
+def get_command_by_name(name):
+	if (name == "stereo"):
 		return stereo
-	elif (command == "cd"):
+	elif (name == "cd"):
 		return cd
-	elif (command == "dtv"):
+	elif (name == "dtv"):
 		return dtv
-	elif (command == "vol_down"):
+	elif (name == "vol_down"):
 		return vol_down
-	elif (command == "vol_up"):
+	elif (name == "vol_up"):
+		return vol_up
+
+def get_command(arguments):
+	if (arguments["stereo"]):
+		return stereo
+	elif (arguments["cd"]):
+		return cd
+	elif (arguments["dtv"]):
+		return dtv
+	elif (arguments["vol_down"]):
+		return vol_down
+	elif (arguments["vol_up"]):
 		return vol_up

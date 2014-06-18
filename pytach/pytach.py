@@ -1,18 +1,36 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+"""PyTach.
+
+Usage:
+    pytach.py nexa <device> (on | off) [-v]
+    pytach.py multibrackets (up | stop | down) [-v]
+    pytach.py yamaha (cd | dtv | stereo | vol_up | vol_down) [-v]
+    pytach.py --web
+
+Options:
+    --web         Start web server.
+    -v --verbose  Print command sent and received. [default: False]
+    -h --help     Show this screen.
+    --version     Show version.
+"""
+
 __author__="gotling"
 __date__ ="$Jun 15, 2014 09:09:38 PM$"
 
 import os
 import sys
 import pickle
+from docopt import docopt
+
 import itach
 import devices.nexa as nexa
 import devices.multibrackets as multibrackets
 import devices.yamaha_rx350 as yamaha
 
 meta_data='.pytach_settings'
+arguments={}
 
 def save_settings(cwd, dict):
     f = open(os.path.join(cwd, meta_data), 'w')
@@ -22,32 +40,33 @@ def load_settings(cwd):
     f = open(os.path.join(cwd, meta_data), 'r')
     return pickle.load(f)
 
-usage = """
-pytach [--web|nexa|multibrackets|yamaha] [command]
-"""
+def log(prompt, command):
+    if arguments['--verbose']:
+        print prompt, command
 
 def main():
-    args = sys.argv
-    if len(args) > 1:
-        if args[1] == '--web':
+    global arguments
+    arguments = docopt(__doc__, version='PyTach 0.1')
+    if len(arguments) >= 1:
+        if arguments['--web']:
             import web.web as web
             sys.exit(0)
-        elif args[1] == 'nexa':
-            sub_command = nexa.build_command(args[2], args[3])
+        elif arguments['nexa']:
+            sub_command = nexa.build_command(arguments['<device>'], arguments['off'])
             command = itach.build_command(1, 1, sub_command)
-        elif args[1] == 'multibrackets':
-            sub_command = multibrackets.get_command(args[2])
+        elif arguments['multibrackets']:
+            sub_command = multibrackets.get_command(arguments)
             command = itach.build_command(1, 1, sub_command)
-        elif args[1] == 'yamaha':
-            sub_command = yamaha.get_command(args[2])
+        elif arguments['yamaha']:
+            sub_command = yamaha.get_command(arguments)
             command = itach.build_command(1, 3, sub_command)
         else:
             print usage
             sys.exit(0)
 
-        print ">", command
+        log(">", command)
         result = itach.send_command(command)
-        print "<", result
+        log("<", result)
     else:
         print usage
         sys.exit(0)
