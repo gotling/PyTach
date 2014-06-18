@@ -7,6 +7,7 @@ Usage:
     pytach.py nexa <device> <command> [-v]
     pytach.py multibrackets <command> [-v]
     pytach.py yamaha <command> [-v]
+    pytach.py epson <command> [-v]
     pytach.py --web
 
 Options:
@@ -19,6 +20,7 @@ Commands:
     nexa           (on | off)
     multibrackets  (up | stop | down)
     yamaha         (cd | dtv | stereo | vol_up | vol_down)
+    epson          (power)
 """
 
 __author__="gotling"
@@ -33,6 +35,7 @@ import itach
 import devices.nexa as nexa
 import devices.multibrackets as multibrackets
 import devices.yamaha_rx350 as yamaha
+import devices.epson_eh_tw3200 as epson
 
 meta_data='.pytach_settings'
 arguments={}
@@ -65,6 +68,9 @@ def main():
         elif arguments['yamaha']:
             sub_command = yamaha.get_command(arguments['<command>'])
             command = itach.build_command(1, 3, sub_command)
+        elif arguments['epson']:
+            sub_command = epson.get_command(arguments['<command>'])
+            command = itach.build_command(1, 2, sub_command)
         else:
             print usage
             sys.exit(0)
