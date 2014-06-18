@@ -4,9 +4,9 @@
 """PyTach.
 
 Usage:
-    pytach.py nexa <device> (on | off) [-v]
-    pytach.py multibrackets (up | stop | down) [-v]
-    pytach.py yamaha (cd | dtv | stereo | vol_up | vol_down) [-v]
+    pytach.py nexa <device> <command> [-v]
+    pytach.py multibrackets <command> [-v]
+    pytach.py yamaha <command> [-v]
     pytach.py --web
 
 Options:
@@ -14,6 +14,11 @@ Options:
     -v --verbose  Print command sent and received. [default: False]
     -h --help     Show this screen.
     --version     Show version.
+
+Commands:
+    nexa           (on | off)
+    multibrackets  (up | stop | down)
+    yamaha         (cd | dtv | stereo | vol_up | vol_down)
 """
 
 __author__="gotling"
@@ -52,13 +57,13 @@ def main():
             import web.web as web
             sys.exit(0)
         elif arguments['nexa']:
-            sub_command = nexa.build_command(arguments['<device>'], arguments['off'])
+            sub_command = nexa.build_command(arguments['<device>'], arguments['<command>'])
             command = itach.build_command(1, 1, sub_command)
         elif arguments['multibrackets']:
-            sub_command = multibrackets.get_command(arguments)
+            sub_command = multibrackets.get_command(arguments['<command>'])
             command = itach.build_command(1, 1, sub_command)
         elif arguments['yamaha']:
-            sub_command = yamaha.get_command(arguments)
+            sub_command = yamaha.get_command(arguments['<command>'])
             command = itach.build_command(1, 3, sub_command)
         else:
             print usage
