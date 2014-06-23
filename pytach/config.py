@@ -2,8 +2,12 @@
 import os
 import pickle
 
-meta_data='.pytach_settings'
-arguments={}
+itach_host = "192.168.0.22"
+itach_port = 4998
+timeout = 2
+
+meta_data = '.pytach_settings'
+arguments = {}
 
 def save_settings(cwd, dict):
     f = open(os.path.join(cwd, meta_data), 'w')

@@ -2,12 +2,8 @@
 
 import sys
 import socket
+import config
 
-HOST = "192.168.0.22"
-PORT = 4998
-timeout = 2
-module = 1
-connection = 1
 base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],";
 
 def build_command(module, connection, sub_command, repeat=3):
@@ -22,11 +18,11 @@ def build_command(module, connection, sub_command, repeat=3):
 def send_command(command):
     s = None
 
-    for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC, socket.SOCK_STREAM):
+    for res in socket.getaddrinfo(config.itach_host, config.itach_port, socket.AF_UNSPEC, socket.SOCK_STREAM):
         af, socktype, proto, canonname, sa = res
         try:
             s = socket.socket(af, socktype, proto)
-            s.settimeout(timeout)
+            s.settimeout(config.timeout)
         except socket.error as msg:
             s = None
             continue
