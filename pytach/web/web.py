@@ -24,7 +24,7 @@ def send(command):
     log("<", result)
 
 @route('/')
-def hello():
+def main():
     return static_file('main.html', root=static_path)
 
 @route('/static/<filename>')
