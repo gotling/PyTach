@@ -7,12 +7,17 @@ import itach
 from devices import nexa as nexa
 from devices import multibrackets as multibrackets
 from devices import yamaha_rx350 as yamaha
+import config
 import devices.epson_eh_tw3200 as epson
 
+def log(prompt, command):
+    if config.arguments['--verbose']:
+        print prompt, command
+
 def send(command):
-    print ">", command
+    log(">", command)
     result = itach.send_command(command)
-    print "<", result
+    log("<", result)
 
 @route('/')
 def hello():

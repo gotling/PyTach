@@ -8,7 +8,7 @@ Usage:
     pytach.py multibrackets <command> [-v]
     pytach.py yamaha <command> [-v]
     pytach.py epson <command> [-v]
-    pytach.py --web
+    pytach.py --web [-v]
 
 Options:
     --web         Start web server.
@@ -26,35 +26,23 @@ Commands:
 __author__="gotling"
 __date__ ="$Jun 15, 2014 09:09:38 PM$"
 
-import os
 import sys
-import pickle
 from docopt import docopt
 
 import itach
+import config
 import devices.nexa as nexa
-import devices.multibrackets as multibrackets
 import devices.yamaha_rx350 as yamaha
 import devices.epson_eh_tw3200 as epson
-
-meta_data='.pytach_settings'
-arguments={}
-
-def save_settings(cwd, dict):
-    f = open(os.path.join(cwd, meta_data), 'w')
-    pickle.dump(dict, f)
-
-def load_settings(cwd):
-    f = open(os.path.join(cwd, meta_data), 'r')
-    return pickle.load(f)
+import devices.multibrackets as multibrackets
 
 def log(prompt, command):
-    if arguments['--verbose']:
+    if config.arguments['--verbose']:
         print prompt, command
 
 def main():
-    global arguments
     arguments = docopt(__doc__, version='PyTach 0.1')
+    config.arguments = arguments
     if len(arguments) >= 1:
         if arguments['--web']:
             import web.web as web
