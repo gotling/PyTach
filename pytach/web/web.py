@@ -21,11 +21,11 @@ def send(command):
 
 @route('/')
 def hello():
-    return static_file('main.html', root='web/static')
+    return static_file('main.html', root='/opt/PyTach/pytach/web/static')
 
 @route('/static/<filename>')
 def static(filename):
-    return static_file(filename, root='web/static')
+    return static_file(filename, root='/opt/PyTach/pytach/web/static')
 
 @route('/activity/<activity:path>', method='POST')
 def activity(activity):
