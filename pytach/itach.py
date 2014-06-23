@@ -5,7 +5,7 @@ import socket
 
 HOST = "192.168.0.22"
 PORT = 4998
-timeout = 2000
+timeout = 2
 module = 1
 connection = 1
 base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],";
@@ -26,13 +26,14 @@ def send_command(command):
         af, socktype, proto, canonname, sa = res
         try:
             s = socket.socket(af, socktype, proto)
+            s.settimeout(timeout)
         except socket.error as msg:
             s = None
             continue
         
         try:
             s.connect(sa)
-        except socket.error as msg:
+        except (socket.error, socket.timeout) as msg:
             s.close()
             s = None
             continue
@@ -40,7 +41,7 @@ def send_command(command):
 
     if s is None:
         print "Socket errer:", msg
-        sys.exit(1)
+        return
 
     s.sendall(command)
     data = s.recv(1024)
