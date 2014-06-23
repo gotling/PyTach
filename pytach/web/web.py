@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
+import os
 import string
+import inspect
 from bottle import route, run, static_file
 
 import itach
@@ -9,6 +11,8 @@ import devices.nexa as nexa
 import devices.yamaha_rx350 as yamaha
 import devices.epson_eh_tw3200 as epson
 import devices.multibrackets as multibrackets
+
+static_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/static'
 
 def log(prompt, command):
     if config.arguments['--verbose']:
@@ -21,11 +25,11 @@ def send(command):
 
 @route('/')
 def hello():
-    return static_file('main.html', root='/opt/PyTach/pytach/web/static')
+    return static_file('main.html', root=static_path)
 
 @route('/static/<filename>')
 def static(filename):
-    return static_file(filename, root='/opt/PyTach/pytach/web/static')
+    return static_file(filename, root=static_path)
 
 @route('/activity/<activity:path>', method='POST')
 def activity(activity):
