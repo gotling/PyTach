@@ -59,6 +59,12 @@
             <p>
                 <button class="pure-button" onclick='post("/device/epson/power")'>Power</button>
             </p>
+
+            <h2 class="content-subhead" id="epson">Activities</h2>
+            <p>
+                <button class="pure-button" onclick='post("/activity/watch_ps3")'>Watch on PS3</button>
+                <button class="pure-button" onclick='post("/activity/watch_ended")'>Stop watching</button>
+            </p>
         </div>
     </div>
 </div>
@@ -70,6 +76,6 @@
             console.log("POST: " + url + " Result: " + res);
         }, "{}");
     }
-</script
+</script>
 </body>
 </html>

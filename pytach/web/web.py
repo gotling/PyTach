@@ -4,11 +4,11 @@ import string
 from bottle import route, run, static_file
 
 import itach
-from devices import nexa as nexa
-from devices import multibrackets as multibrackets
-from devices import yamaha_rx350 as yamaha
 import config
+import devices.nexa as nexa
+import devices.yamaha_rx350 as yamaha
 import devices.epson_eh_tw3200 as epson
+import devices.multibrackets as multibrackets
 
 def log(prompt, command):
     if config.arguments['--verbose']:
@@ -27,9 +27,47 @@ def hello():
 def static(filename):
     return static_file(filename, root='web/static')
 
+@route('/activity/<activity:path>', method='POST')
+def activity(activity):
+    activity = activity.split('/')
+    if activity[0] == 'watch_ps3':
+        sub_command = epson.get_command('power')
+        command = itach.build_command(1, 2, sub_command)
+        send(command)
+
+        sub_command = nexa.build_command(1, "off")
+        command = itach.build_command(1, 1, sub_command)
+        send(command)
+
+        sub_command = multibrackets.get_command('down')
+        command = itach.build_command(1, 1, sub_command)
+        send(command)
+
+        sub_command = yamaha.get_command('dtv')
+        command = itach.build_command(1, 3, sub_command)
+        send(command)
+    elif activity[0] == 'watch_ended':
+        sub_command = epson.get_command('power')
+        command = itach.build_command(1, 2, sub_command)
+        send(command)
+
+        sub_command = epson.get_command('power')
+        command = itach.build_command(1, 2, sub_command)
+        send(command)
+
+        sub_command = nexa.build_command(1, "on")
+        command = itach.build_command(1, 1, sub_command)
+        send(command)
+
+        sub_command = multibrackets.get_command('up')
+        command = itach.build_command(1, 1, sub_command)
+        send(command)
+
+        sub_command = yamaha.get_command('cd')
+        command = itach.build_command(1, 3, sub_command)
+
 @route('/device/<device:path>', method='POST')
 def device(device):
-    print device
     device = device.split('/')
     if device[0] == 'nexa':
         if len(device) == 3:
@@ -62,4 +100,4 @@ def device(device):
     else:
         print 'Unknown device'
 
-run(host='192.168.0.26', port=8080, debug=True)
+run(host='0.0.0.0', port=8082, debug=True)
