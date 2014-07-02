@@ -13,13 +13,14 @@ def send(text):
     #print ser.readline()
     text += '\n'
     ser.write(text)
-    print text
+    print ">", text
     ser.close()
 
 def read():
     try:
         while True:
-            print ser.readline().strip()
+            line = ser.readline().strip()
+            print "<", line
     except KeyboardInterrupt:
         print "Terminated by user"
     finally:

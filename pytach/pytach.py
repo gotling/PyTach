@@ -55,14 +55,16 @@ def main():
             import arduino.arduino as arduino
             if arguments['<command>']:
                 arduino.send(arguments['<command>'])
+                sys.exit(0)
             else:
                 #arduino.send_and_read()
                 p = multiprocessing.Process(target=arduino.read)
                 jobs.append(p)
                 p.start()
-            print "Arduino listener started"
-            raw_input("Press enter to exit.\n")
-            sys.exit(0)
+                p.join();
+                print "Arduino listener started"
+                raw_input("Use keyboard interupt to exit (CTRL + C).\n")
+                sys.exit(0)
         elif arguments['nexa']:
             sub_command = nexa.build_command(arguments['<device>'], arguments['<command>'])
             command = itach.build_command(1, 1, sub_command, 3)
