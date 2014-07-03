@@ -28,7 +28,7 @@ def send(command):
 def main():
     return static_file('main.html', root=static_path)
 
-@route('/static/<filename>')
+@route('/static/<filename:path>')
 def static(filename):
     return static_file(filename, root=static_path)
 
