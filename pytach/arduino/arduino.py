@@ -5,7 +5,7 @@ import serial
 import config
 import time
 
-port = '/dev/tty.usbmodemfa141'
+port = '/dev/tty.usbmodemfd131'
 ser = serial.Serial(port, 9600)
 
 def send(text):
