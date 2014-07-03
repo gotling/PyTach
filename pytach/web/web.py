@@ -3,7 +3,7 @@
 import os
 import string
 import inspect
-from bottle import route, run, static_file
+from bottle import route, run, app, static_file
 
 import itach
 import config
@@ -104,4 +104,17 @@ def device(device):
     else:
         print 'Unknown device'
 
-run(host='0.0.0.0', port=8082, debug=True)
+
+class RewriteMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    def __call__(self, env, res):
+        path = env['PATH_INFO']
+        if path.startswith('/pytach'):
+            env['PATH_INFO'] = path.replace('/pytach', '', 1)
+
+        return self.app(env, res)
+
+app = RewriteMiddleware(app())
+run(app=app, host='0.0.0.0', port=8082, debug=True)

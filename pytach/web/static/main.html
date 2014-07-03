@@ -4,8 +4,8 @@
 	<title>PyTach</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="static/images/icon-300.png">
-    <link rel="apple-touch-icon-precomposed" href="static/images/icon-152.png">
+    <link rel="icon" type="image/png" href="static/images/icon300.png">
+    <link rel="apple-touch-icon-precomposed" href="static/images/icon152.png">
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 	<link rel="stylesheet" href="http://purecss.io/combo/1.15.4?/css/layouts/side-menu.css">
     <script src="static/microajax-mod.js"></script>
@@ -74,7 +74,7 @@
 <script src="http://purecss.io/combo/1.15.4?/js/ui.js"></script>
 <script>
     function post(url) {
-        microAjax(url, function(res) {
+        microAjax("/pytach" + url, function(res) {
             console.log("POST: " + url + " Result: " + res);
         }, "{}");
     }

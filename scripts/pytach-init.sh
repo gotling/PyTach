@@ -15,6 +15,7 @@ DIR=/opt/PyTach/pytach
 DAEMON="$DIR/pytach.py"
 DAEMON_OPTS="--web"
 DAEMON_NAME=pytach
+LOG=/var/log/pytach.log
  
 # This next line determines what user the script runs as.
 # Root generally not recommended but necessary if you are using the Raspberry Pi GPIO from Python.
@@ -28,7 +29,7 @@ PIDFILE=/var/run/$DAEMON_NAME.pid
 do_start () {
     log_daemon_msg "Starting system $DAEMON_NAME daemon"
     cd $DIR
-    start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --chuid $DAEMON_USER --startas $DAEMON -- $DAEMON_OPTS
+    start-stop-daemon --start --background --pidfile $PIDFILE --make-pidfile --user $DAEMON_USER --chuid $DAEMON_USER --exec /bin/bash -- -c "exec $DAEMON $DAEMON_OPTS > $LOG 2>&1"
     log_end_msg $?
 }
 do_stop () {
