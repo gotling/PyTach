@@ -4,6 +4,7 @@ import os
 import string
 import inspect
 from bottle import route, run, app, static_file
+import re
 
 import itach
 import config
@@ -112,7 +113,7 @@ class RewriteMiddleware:
     def __call__(self, env, res):
         path = env['PATH_INFO']
         if path.startswith('/pytach'):
-            env['PATH_INFO'] = path.replace('/pytach', '', 1)
+            env['PATH_INFO'] = re.sub(r'/pytach[/]?', '', path)
 
         return self.app(env, res)
 
