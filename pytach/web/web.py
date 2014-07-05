@@ -3,6 +3,7 @@
 import os
 import string
 import inspect
+import bottle
 from bottle import route, run, app, static_file
 import re
 
@@ -24,15 +25,18 @@ def send(command):
     result = itach.send_command(command)
     log("<", result)
 
-@route('/')
+app = application = bottle.Bottle()
+
+@app.route('/')
 def main():
+    print "Trying to load main.html"
     return static_file('main.html', root=static_path)
 
-@route('/static/<filename:path>')
+@app.route('/static/<filename>')
 def static(filename):
     return static_file(filename, root=static_path)
 
-@route('/activity/<activity:path>', method='POST')
+@app.route('/activity/<activity:path>', method='POST')
 def activity(activity):
     activity = activity.split('/')
     if activity[0] == 'watch_ps3':
@@ -71,7 +75,7 @@ def activity(activity):
         sub_command = yamaha.get_command('cd')
         command = itach.build_command(1, 3, sub_command)
 
-@route('/device/<device:path>', method='POST')
+@app.route('/device/<device:path>', method='POST')
 def device(device):
     device = device.split('/')
     if device[0] == 'nexa':
@@ -106,16 +110,6 @@ def device(device):
         print 'Unknown device'
 
 
-class RewriteMiddleware:
-    def __init__(self, app):
-        self.app = app
 
-    def __call__(self, env, res):
-        path = env['PATH_INFO']
-        if path.startswith('/pytach'):
-            env['PATH_INFO'] = re.sub(r'/pytach[/]?', '', path)
-
-        return self.app(env, res)
-
-app = RewriteMiddleware(app())
-run(app=app, host='0.0.0.0', port=8082, debug=True)
+if __name__ == '__main__':
+	app.run(host='0.0.0.0', port=8082, debug=True)
