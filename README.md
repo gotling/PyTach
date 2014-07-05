@@ -7,16 +7,29 @@ Features
 * Command line interface
 * REST interface
 * Web interface
+* Arduino I/O
 
-Usage
+Command line usage
 ================
 ### Control device
-	pytach.py nexa (1-4) (on | off)
-	pytach.py multibrackets (up | stop | down)
-	pytach.py yamaha (cd | dtv | stereo | vol_up | vol_down)
+	pytach.py device <device> <command>
+
+List available devicese with
+	pytach.py --help
+
+### Activity
+	pytach.py activity <activity> <command>
+
+List available activities with
+	pytach.py --help
 
 ### Start web server
 	pytach.py --web
+
+Accessible on http://localhost:8082
+
+### Start Arduino listener
+	pytach.py --arduino
 
 Installation
 ================
