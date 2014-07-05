@@ -24,7 +24,7 @@ List available activities with *pytach.py --help*
 ### Start web server
 	pytach.py --web
 
-Accessible on [localhost:8082](http://localhost:8082)
+Accessible on [localhost:8080](http://localhost:8080)
 
 ### Start Arduino listener
 	pytach.py --arduino
@@ -42,7 +42,7 @@ Debian
 
 Standalone development server
 ----------------
-Make PyTach available at *http://server:8082*
+Make PyTach available at *http://server:8080*
 
 	ln -s /opt/PyTach/scripts/pytach-init.sh /etc/init.d/pytach
 	chmod +x /etc/init.d/pytach
