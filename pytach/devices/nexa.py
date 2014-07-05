@@ -2,6 +2,10 @@
 
 baseCommand = "1,13,39,13,39,13,39,13,39,13,39,13,39,13,39,13,39,13,39,[DEVICE],13,39,13,39,13,39,13,39,13,39,13,39,13,39,39,13,13,39,39,13,13,39,[STATE],13,427";
 
+def get_command(command):
+	device, off = command.split(':')
+	return build_command(device, off)
+
 def build_command(device, off):
 	command = baseCommand.replace("[DEVICE]", get_device(device))
 	command = command.replace("[STATE]", get_state(off))
