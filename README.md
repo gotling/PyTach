@@ -32,6 +32,7 @@ Debian
 Standalone development server
 ----------------
 Make PyTach available at http://address:8082
+
 	ln -s /opt/PyTach/scripts/pytach-init.sh /etc/init.d/pytach
 	chmod +x /etc/init.d/pytach
 	/etc/init.d/pytach start
@@ -43,7 +44,9 @@ Make PyTach available at http://address/pytach
 	apt-get install uwsgi uwsgi-plugin-python python-bottle nginx
 	ln -s /opt/PyTach/scripts/pytach-uwsgi.ini /etc/uwsgi/apps-enabled/
 	service uwsig restart
-	Add content of scripts/nginx-config to /etc/nginx/sites-available/default
+
+Add content of scripts/nginx-config to /etc/nginx/sites-available/default
+
 	service nginx restart
 
 Acknowledgements
