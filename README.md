@@ -1,6 +1,6 @@
 PyTach
 ================
-Python library for communicating with GlobalCache iTach IR/RF device
+Python library for communicating with GlobalCache iTach IR/RF device.
 
 Features
 ================
@@ -14,19 +14,17 @@ Command line usage
 ### Control device
 	pytach.py device <device> <command>
 
-List available devicese with
-	pytach.py --help
+List available devicese with *pytach.py --help*
 
 ### Activity
 	pytach.py activity <activity> <command>
 
-List available activities with
-	pytach.py --help
+List available activities with *pytach.py --help*
 
 ### Start web server
 	pytach.py --web
 
-Accessible on http://localhost:8082
+Accessible on [localhost:8082](http://localhost:8082)
 
 ### Start Arduino listener
 	pytach.py --arduino
@@ -44,7 +42,7 @@ Debian
 
 Standalone development server
 ----------------
-Make PyTach available at http://address:8082
+Make PyTach available at *http://server:8082*
 
 	ln -s /opt/PyTach/scripts/pytach-init.sh /etc/init.d/pytach
 	chmod +x /etc/init.d/pytach
@@ -52,13 +50,13 @@ Make PyTach available at http://address:8082
 
 nginx + uWSGI (recommended)
 ----------------
-Make PyTach available at http://address/pytach
+Make PyTach available at *http://server/pytach*
 
 	apt-get install uwsgi uwsgi-plugin-python python-bottle nginx
 	ln -s /opt/PyTach/scripts/pytach-uwsgi.ini /etc/uwsgi/apps-enabled/
 	service uwsig restart
 
-Add content of scripts/nginx-config to /etc/nginx/sites-available/default
+Add content of *scripts/nginx-config* to */etc/nginx/sites-available/default*
 
 	service nginx restart
 
