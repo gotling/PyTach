@@ -40,32 +40,32 @@
         <div class="content">
             <h2 class="content-subhead" id="nexa">Nexa</h2>
             <p>
-                <button class="pure-button" onclick='post("/device/nexa/1/on")'>ON</button>
-                <button class="pure-button" onclick='post("/device/nexa/1/off")'>OFF</button>
+                <button class="pure-button" onclick='post("device/nexa/1/on")'>ON</button>
+                <button class="pure-button" onclick='post("device/nexa/1/off")'>OFF</button>
             </p>
             <h2 class="content-subhead" id="multibrackets">Multibrackets</h2>
             <p>
-                <button class="pure-button" onclick='post("/device/multibrackets/up")'>Up</button>
-                <button class="pure-button" onclick='post("/device/multibrackets/stop")'>Stop</button>
-                <button class="pure-button" onclick='post("/device/multibrackets/down")'>Down</button>
+                <button class="pure-button" onclick='post("device/multibrackets/up")'>Up</button>
+                <button class="pure-button" onclick='post("device/multibrackets/stop")'>Stop</button>
+                <button class="pure-button" onclick='post("device/multibrackets/down")'>Down</button>
             </p>
 
             <h2 class="content-subhead" id="yamaha">Yamaha</h2>
             <p>
-            	<button class="pure-button" onclick='post("/device/yamaha/cd")'>SqueezeBox</button>
-                <button class="pure-button" onclick='post("/device/yamaha/dtv")'>PlayStation</button>
-                <button class="pure-button" onclick='post("/device/yamaha/stereo")'>Stereo</button>
+            	<button class="pure-button" onclick='post("device/yamaha/cd")'>SqueezeBox</button>
+                <button class="pure-button" onclick='post("device/yamaha/dtv")'>PlayStation</button>
+                <button class="pure-button" onclick='post("device/yamaha/stereo")'>Stereo</button>
             </p>
 
             <h2 class="content-subhead" id="epson">Epson</h2>
             <p>
-                <button class="pure-button" onclick='post("/device/epson/power")'>Power</button>
+                <button class="pure-button" onclick='post("device/epson/power")'>Power</button>
             </p>
 
             <h2 class="content-subhead" id="epson">Activities</h2>
             <p>
-                <button class="pure-button" onclick='post("/activity/watch_ps3")'>Watch on PS3</button>
-                <button class="pure-button" onclick='post("/activity/watch_ended")'>Stop watching</button>
+                <button class="pure-button" onclick='post("activity/watch_ps3")'>Watch on PS3</button>
+                <button class="pure-button" onclick='post("activity/watch_ended")'>Stop watching</button>
             </p>
         </div>
     </div>
@@ -74,7 +74,7 @@
 <script src="http://purecss.io/combo/1.15.4?/js/ui.js"></script>
 <script>
     function post(url) {
-        microAjax("/pytach" + url, function(res) {
+        microAjax(url, function(res) {
             console.log("POST: " + url + " Result: " + res);
         }, "{}");
     }

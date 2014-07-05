@@ -50,6 +50,7 @@ def main():
     if len(arguments) >= 1:
         if arguments['--web']:
             import web.web as web
+            web.app.run()
             sys.exit(0)
         if arguments['--arduino']:
             import arduino.arduino as arduino
