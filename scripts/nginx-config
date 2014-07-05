@@ -1,10 +1,11 @@
 # Put the following in a server block
 
+	rewrite ^/pytach$ /pytach/ permanent;
 	location /pytach {
-        try_files $uri @uwsgi;
-    }
+		try_files $uri @uwsgi;
+	}
 
-    location @uwsgi {
-        include uwsgi_params;
-        uwsgi_pass unix:/run/uwsgi/app/pytach/socket;
-    }
+	location @uwsgi {
+		include uwsgi_params;
+		uwsgi_pass unix:/run/uwsgi/app/pytach/socket;
+	}
