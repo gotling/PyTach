@@ -1,0 +1,10 @@
+# Put the following in a server block
+
+	location /pytach {
+        try_files $uri @uwsgi;
+    }
+
+    location @uwsgi {
+        include uwsgi_params;
+        uwsgi_pass unix:/run/uwsgi/app/pytach/socket;
+    }
