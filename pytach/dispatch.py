@@ -2,11 +2,9 @@
 
 import itach
 import config
+import reader
 
-import devices.nexa as nexa
-import devices.yamaha_rx350 as yamaha
-import devices.epson_eh_tw3200 as epson
-import devices.multibrackets as multibrackets
+devices = reader.read_path("devices")
 
 def log(prompt, command):
     if config.arguments['--verbose']:
@@ -17,21 +15,26 @@ def send(command):
     result = itach.send_command(command)
     log("<", result)
 
-def device(name, command):
-    if name == 'nexa':
-        sub_command = nexa.get_command(command)
-        command = itach.build_command(1, 1, sub_command, 3)
-    elif name == 'multibrackets':
-        sub_command = multibrackets.get_command(command)
-        command = itach.build_command(1, 1, sub_command)
-    elif name == 'yamaha':
-        sub_command = yamaha.get_command(command)
-        command = itach.build_command(1, 3, sub_command)
-    elif name =='epson':
-        sub_command = epson.get_command(command)
-        command = itach.build_command(1, 2, sub_command)
+def get_command(device, command_name):
+    if devices.has_key(device):
+        command = next((item for item in devices[device]["commands"] if item["name"] == command_name), False)
+        if command == False:
+            raise NameError("Device '%s' has no command named '%s'" % (device, command_name))
+        else:
+            return command["code"]
     else:
-        raise NameError("The device '%s' does not exist" % name)
+        raise NameError("Device '%s' deos not exist" % device)
+
+def get_connection(device):
+    if config.connection.has_key(device):
+        return config.connection[device]
+    else:
+        raise NameError("No connection configured for device '%s'" % name)
+
+def device(name, command_name):
+    connection = get_connection(name)
+    sub_command = get_command(name, command_name)
+    command = itach.build_command(1, connection, sub_command) 
 
     send(command)
 

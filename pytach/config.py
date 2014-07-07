@@ -8,6 +8,12 @@ timeout = 2
 
 meta_data = '.pytach_settings'
 arguments = {}
+connection = {
+	'nexa': 1,
+	'multibrackets': 1,
+	'yamaha': 3,
+	'epson': 2
+}
 
 def save_settings(cwd, dict):
     f = open(os.path.join(cwd, meta_data), 'w')
