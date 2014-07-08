@@ -1,0 +1,54 @@
+{
+    "name": "watch",
+    "description": "Watch",
+    "activities": [
+        {
+            "name": "ps3",
+            "description": "PS3",
+            "commands": [
+                {
+                    "device": "epson",
+                    "command": "power"
+                },
+                {
+                    "device": "nexa",
+                    "command": "1:off"
+                },
+                {
+                    "device": "multibrackets",
+                    "command": "down"
+                },
+                {
+                    "device": "yamaha",
+                    "command": "dtv"
+                }
+            ]
+        },
+        {
+            "name": "stop",
+            "description": "Stop",
+            "commands": [
+                {
+                    "device": "epson",
+                    "command": "power"
+                },
+                {
+                    "device": "epson",
+                    "command": "power"
+                },
+                {
+                    "device": "nexa",
+                    "command": "1:on"
+                },
+                {
+                    "device": "multibrackets",
+                    "command": "up"
+                },
+                {
+                    "device": "yamaha",
+                    "command": "cd"
+                }
+            ]
+        }
+    ]
+}
