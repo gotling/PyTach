@@ -6,20 +6,23 @@ import bottle
 import string
 import inspect
 
-from bottle import static_file
+from bottle import static_file, template, url
 
 import config
 import dispatch
 
 static_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/static'
+bottle.TEMPLATE_PATH.insert(0, os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) +'/views')
 
 app = application = bottle.Bottle()
+bottle.default_app.push(app)
+bottle.BaseTemplate.defaults['url'] = url
 
 @app.route('/')
 def main():
     return static_file('main.html', root=static_path)
 
-@app.route('/static/<filename:path>')
+@app.route('/static/<filename:path>', name='static')
 def static(filename):
     return static_file(filename, root=static_path)
 
@@ -31,7 +34,11 @@ def activity(activity):
     except NameError, e:
         print "Input error:", e
 
-@app.route('/device/<device:path>', method='POST')
+@app.route('/device/<device>', method='GET')
+def device_view(device):
+    return template('device', device=dispatch.devices[device])
+
+@app.route('/device/<device:path>', name='device', method='POST')
 def device(device):
     device, command = device.split('/')
     try:
