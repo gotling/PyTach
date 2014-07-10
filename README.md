@@ -64,7 +64,7 @@ Acknowledgements
 ================
 Bottle
 ----------------
-Copyright © 2012 Marcel Hellkamp.
+Copyright © 2012 Marcel Hellkamp
 
 http://bottlepy.org/
 
@@ -93,3 +93,11 @@ Copyright © 2014 Yahoo! Inc
 http://purecss.io/
 
 License: BSD License
+
+pySerial
+----------------
+Copyright © 2001-2013 Chris Liechti
+
+http://pyserial.sourceforge.net/
+
+License: Python Software Foundation License
