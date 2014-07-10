@@ -10,3 +10,7 @@ def read_path(path):
             config[json_data['name']] = json_data
 
     return config
+
+def read_file(file):
+    with open(file) as json_file:
+        return json.load(json_file)

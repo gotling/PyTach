@@ -8,7 +8,6 @@ import inspect
 
 from bottle import static_file, template, url
 
-import config
 import dispatch
 
 static_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/static'

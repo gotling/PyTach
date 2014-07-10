@@ -37,8 +37,8 @@ def get_activity(group, activity_name):
         raise NameError("Activity group '%s' does not exist" % activity)
 
 def get_connection(device):
-    if config.connection.has_key(device):
-        return config.connection[device]
+    if config.config["itach"]["connection"].has_key(device):
+        return config.config["itach"]["connection"][device]
     else:
         raise NameError("No connection configured for device '%s'" % name)
 

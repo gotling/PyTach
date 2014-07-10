@@ -2,7 +2,7 @@
 
 import sys
 import socket
-import config
+from config import config
 
 base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],";
 
@@ -18,11 +18,11 @@ def build_command(module, connection, sub_command, repeat=3):
 def send_command(command):
     s = None
 
-    for res in socket.getaddrinfo(config.itach_host, config.itach_port, socket.AF_UNSPEC, socket.SOCK_STREAM):
+    for res in socket.getaddrinfo(config["itach"]["host"], config["itach"]["port"], socket.AF_UNSPEC, socket.SOCK_STREAM):
         af, socktype, proto, canonname, sa = res
         try:
             s = socket.socket(af, socktype, proto)
-            s.settimeout(config.timeout)
+            s.settimeout(config["itach"]["timeout"])
         except socket.error as msg:
             s = None
             continue
