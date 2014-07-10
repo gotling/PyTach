@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="http://purecss.io/combo/1.15.4?/css/layouts/side-menu.css">
     <script src="{{ url('static', filename='microajax-mod.js') }}"></script>
+    <style type="text/css">
+    	h1 a {text-decoration: none; color: #333}
+    </style>
 </head>
 <body>
 <div id="layout">
@@ -35,7 +38,7 @@
 
     <div id="main">
         <div class="header">
-            <h1>PyTach</h1>
+            <h1><a href="{{ url('main') }}">PyTach</a></h1>
             <h2>An interface to iTach</h2>
         </div>
 

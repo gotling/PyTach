@@ -18,7 +18,7 @@ app = application = bottle.Bottle()
 bottle.default_app.push(app)
 bottle.BaseTemplate.defaults['url'] = url
 
-@app.route('/')
+@app.route('/', name='main')
 def main():
     return template('main', devices=dispatch.devices, activities=dispatch.activities)
 
