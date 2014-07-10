@@ -8,10 +8,12 @@ Usage:
     pytach.py activity <activity> <command> [-v]
     pytach.py --web [-v]
     pytach.py --arduino [<command>] [-v]
+    pytach.py --discover
 
 Options:
     --web         Start web server.
     --arduino     Start Arduino serial listener or send command to Arduino.
+    --discover    Look for iTach connected to the network and print status.
     -v --verbose  Print command sent and received. [default: False]
     -h --help     Show this screen.
     --version     Show version.
@@ -33,6 +35,7 @@ import sys
 import multiprocessing
 from docopt import docopt
 
+import itach
 import config
 import dispatch
 
@@ -73,6 +76,8 @@ def main():
         web()
     elif arguments['--arduino']:
         arduino(arguments)
+    elif arguments['--discover']:
+        itach.discover()
     else:
         activity_device(arguments)
 

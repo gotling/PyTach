@@ -101,3 +101,11 @@ Copyright © 2001-2013 Chris Liechti
 http://pyserial.sourceforge.net/
 
 License: Python Software Foundation License
+
+pytach
+----------------
+Copyright © 2012 Mark McWilliams
+
+https://github.com/moolicious/pytach
+
+License: MIT License
