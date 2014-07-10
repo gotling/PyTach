@@ -20,13 +20,17 @@ bottle.BaseTemplate.defaults['url'] = url
 
 @app.route('/')
 def main():
-    return static_file('main.html', root=static_path)
+    return template('main', devices=dispatch.devices, activities=dispatch.activities)
 
 @app.route('/static/<filename:path>', name='static')
 def static(filename):
     return static_file(filename, root=static_path)
 
-@app.route('/activity/<activity:path>', method='POST')
+@app.route('/activity/<activity>', name='activity_view', method='GET')
+def activity_view(activity):
+    return template('activity', activity=dispatch.activities[activity], devices=dispatch.devices, activities=dispatch.activities)
+
+@app.route('/activity/<activity:path>', name='activity', method='POST')
 def activity(activity):
     activity, command = activity.split('/')
     try:
@@ -34,9 +38,9 @@ def activity(activity):
     except NameError, e:
         print "Input error:", e
 
-@app.route('/device/<device>', method='GET')
+@app.route('/device/<device>', name='device_view', method='GET')
 def device_view(device):
-    return template('device', device=dispatch.devices[device])
+    return template('device', device=dispatch.devices[device], devices=dispatch.devices, activities=dispatch.activities)
 
 @app.route('/device/<device:path>', name='device', method='POST')
 def device(device):
