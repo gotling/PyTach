@@ -29,6 +29,11 @@ def read():
                     dispatch.device(group, command);
                 elif switch == "activity":
                     dispatch.activity(group, command)
+                elif switch == "remote":
+                    if (command == "5EA19966"):
+                        dispatch.activity("watch", "ps3")
+                    elif (command == "5EA119E6"):
+                        dispatch.activity("watch", "stop")
     except KeyboardInterrupt:
         print "Terminated by user"
     finally:
