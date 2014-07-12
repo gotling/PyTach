@@ -25,6 +25,28 @@
             ]
         },
         {
+            "name": "pi",
+            "description": "Raspbmc",
+            "commands": [
+                {
+                    "device": "epson",
+                    "command": "power"
+                },
+                {
+                    "device": "nexa",
+                    "command": "1:off"
+                },
+                {
+                    "device": "multibrackets",
+                    "command": "down"
+                },
+                {
+                    "device": "yamaha",
+                    "command": "vaux"
+                }
+            ]
+        },
+        {
             "name": "stop",
             "description": "Stop",
             "commands": [

@@ -31,7 +31,7 @@ def read():
                     dispatch.activity(group, command)
                 elif switch == "remote":
                     if (command == "5EA19966"):
-                        dispatch.activity("watch", "ps3")
+                        dispatch.activity("watch", "pi")
                     elif (command == "5EA119E6"):
                         dispatch.activity("watch", "stop")
     except KeyboardInterrupt:
