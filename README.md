@@ -52,9 +52,9 @@ nginx + uWSGI (recommended)
 ----------------
 Make PyTach available at *http://server/pytach*
 
-	apt-get install uwsgi uwsgi-plugin-python python-bottle nginx
+	apt-get install uwsgi uwsgi-plugin-python nginx
 	ln -s /opt/PyTach/scripts/pytach-uwsgi.ini /etc/uwsgi/apps-enabled/
-	service uwsig restart
+	service uwsgi restart
 
 Add content of *scripts/nginx-config* to */etc/nginx/sites-available/default*
 
