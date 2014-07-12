@@ -1,8 +1,13 @@
+import os
 import glob
 import json
+import inspect
 
-def read_path(path):
-    files = glob.glob(path + '/*.json')
+base_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/'
+print base_path
+
+def read_path(path):    
+    files = glob.glob(base_path + path + '/*.json')
     config = {}
     for file in files:
         with open(file) as json_file:
@@ -12,5 +17,5 @@ def read_path(path):
     return config
 
 def read_file(file):
-    with open(file) as json_file:
+    with open(base_path + file) as json_file:
         return json.load(json_file)
