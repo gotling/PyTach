@@ -46,7 +46,8 @@ Make PyTach available at *http://server:8080*
 
 	ln -s /opt/PyTach/scripts/pytach-init.sh /etc/init.d/pytach
 	chmod +x /etc/init.d/pytach
-	/etc/init.d/pytach start
+	update-rc.d pytach defaults
+	service pytach start
 
 nginx + uWSGI (recommended)
 ----------------
@@ -59,6 +60,15 @@ Make PyTach available at *http://server/pytach*
 Add content of *scripts/nginx-config* to */etc/nginx/sites-available/default*
 
 	service nginx restart
+
+Arduino listener
+----------------
+Make Arduino listener start on boot.
+
+	ln -s /opt/PyTach/scripts/pytach-arduino-init.sh /etc/init.d/pytach-arduino
+	chmod +x /etc/init.d/pytach-arduino
+	update-rc.d pytach-arduino defaults
+	service pytach-arduino start
 
 Acknowledgements
 ================
