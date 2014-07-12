@@ -7,5 +7,5 @@
 
 	location @uwsgi {
 		include uwsgi_params;
-		uwsgi_pass unix:/run/uwsgi/app/pytach/socket;
+		uwsgi_pass unix:/run/uwsgi/app/pytach-uwsgi/socket;
 	}
