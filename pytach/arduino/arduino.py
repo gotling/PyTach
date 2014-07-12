@@ -2,12 +2,12 @@
 
 import sys
 import serial
-import config
+from config import config
 import time
 
 import dispatch
 
-port = '/dev/tty.usbmodemfd131'
+port = config["arduino"]["port"]
 ser = serial.Serial(port, 9600)
 
 def send(text):

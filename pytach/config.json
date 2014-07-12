@@ -9,5 +9,8 @@
 			"yamaha": 3,
 			"epson": 2
 		}
+	},
+	"arduino": {
+		"port": "/dev/ttyACM0"
 	}
 }
