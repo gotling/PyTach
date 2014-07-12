@@ -41,7 +41,7 @@ import dispatch
 
 def web():
     import web.web as web
-    web.app.run()
+    web.app.run(host='0.0.0.0', debug=True)
 
 def arduino(arguments):
     jobs = []
