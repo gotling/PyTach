@@ -4,7 +4,6 @@ import json
 import inspect
 
 base_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) + '/'
-print base_path
 
 def read_path(path):    
     files = glob.glob(base_path + path + '/*.json')
