@@ -9,6 +9,8 @@ Usage:
     pytach.py --web [-v]
     pytach.py --arduino [<command>] [-v]
     pytach.py --discover
+    pytach.py --devices
+    pytach.py --activities
 
 Options:
     --web         Start web server.
@@ -16,16 +18,9 @@ Options:
     --discover    Look for iTach connected to the network and print status.
     -v --verbose  Print command sent and received. [default: False]
     -h --help     Show this screen.
+    --devices     List available devices.
+    --activities  List available activities.
     --version     Show version.
-
-Devices:
-    nexa           (1:on | 1:off)
-    multibrackets  (up | stop | down)
-    yamaha         (cd | dtv | stereo | vol_up | vol_down)
-    epson          (power)
-
-Activities:
-    watch          (ps3 | stop)
 """
 
 __author__="gotling"
@@ -38,6 +33,16 @@ from docopt import docopt
 import itach
 import config
 import dispatch
+
+def list_devices():
+    print "Devices:"
+    for device in dispatch.devices:
+        print "\t", device
+
+def list_activities():
+    print "Activities:"
+    for activity in dispatch.activities:
+        print "\t", activity
 
 def web():
     import web.web as web
@@ -78,6 +83,10 @@ def main():
         arduino(arguments)
     elif arguments['--discover']:
         itach.discover()
+    elif arguments['--devices']:
+        list_devices()
+    elif arguments['--activities']:
+        list_activities()
     else:
         activity_device(arguments)
 
