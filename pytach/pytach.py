@@ -37,12 +37,18 @@ import dispatch
 def list_devices():
     print "Devices:"
     for device in dispatch.devices:
-        print "\t", device
+        commands = []
+        for command in dispatch.devices[device]["commands"]:
+            commands.append(command["name"])
+        print "\t%s (%s)" % (device.ljust(15), ", ".join(commands))
 
 def list_activities():
     print "Activities:"
     for activity in dispatch.activities:
-        print "\t", activity
+        commands = []
+        for command in dispatch.activities[activity]["activities"]:
+            commands.append(command["name"])
+        print "\t%s (%s)" % (activity.ljust(15), ", ".join(commands))
 
 def web():
     import web.web as web
