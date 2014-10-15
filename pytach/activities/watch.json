@@ -27,6 +27,7 @@
         {
             "name": "pi",
             "description": "Raspbmc",
+            "css-class": "pure-button-primary",
             "commands": [
                 {
                     "device": "epson",
