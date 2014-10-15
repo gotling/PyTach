@@ -13,6 +13,7 @@
     	h1 a {text-decoration: none; color: #333}
         .pure-button {
             margin-bottom: 1em;
+            min-width: 5em;
         }
     </style>
 </head>
