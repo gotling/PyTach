@@ -5,6 +5,7 @@
         {
             "name": "ps3",
             "description": "PS3",
+            "css-class": "button-secondary",
             "commands": [
                 {
                     "device": "epson",
@@ -50,6 +51,7 @@
         {
             "name": "stop",
             "description": "Stop",
+            "css-class": "button-error",
             "commands": [
                 {
                     "device": "epson",
