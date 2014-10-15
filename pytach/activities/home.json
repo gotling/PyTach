@@ -1,0 +1,104 @@
+{
+    "name": "home",
+    "description": "Home",
+    "activities": [
+        {
+            "name": "nexa1_on",
+            "description": "Lamps ON",
+            "commands": [
+                {
+                    "device": "nexa",
+                    "command": "1:on"
+                }
+            ]
+        },
+        {
+            "name": "nexa1_off",
+            "description": "Lamps OFF",
+            "commands": [
+                {
+                    "device": "nexa",
+                    "command": "1:off"
+                }
+            ]
+        },
+        {
+            "name": "mb_up",
+            "description": "Screen up",
+            "commands": [
+                {
+                    "device": "multibrackets",
+                    "command": "down"
+                }
+            ]
+        },
+        {
+            "name": "mb_down",
+            "description": "Screen down",
+            "commands": [
+                {
+                    "device": "multibrackets",
+                    "command": "down"
+                }
+            ]
+        },
+        {
+            "name": "epson_power",
+            "description": "Projector power",
+            "commands": [
+                {
+                    "device": "epson",
+                    "command": "power"
+                }
+            ]
+        },
+        {
+            "name": "yamaha_vaux",
+            "description": "Pi Sound",
+            "commands": [
+                {
+                    "device": "yamaha",
+                    "command": "vaux"
+                }
+            ]
+        },
+        {
+            "name": "yamaha_vol_up",
+            "description": "Volume +~3",
+            "commands": [
+                {
+                    "device": "yamaha",
+                    "command": "vol_up"
+                }
+            ]
+        },
+        {
+            "name": "yamaha_vol_down",
+            "description": "Volume -~3",
+            "commands": [
+                {
+                    "device": "yamaha",
+                    "command": "vol_down"
+                }
+            ]
+        },
+        {
+            "name": "yamaha_vol_down_down",
+            "description": "Volume -~8",
+            "commands": [
+                {
+                    "device": "yamaha",
+                    "command": "vol_down"
+                },
+                {
+                    "device": "yamaha",
+                    "command": "vol_down"
+                },
+                {
+                    "device": "yamaha",
+                    "command": "vol_down"
+                }
+            ]
+        }
+    ]
+}
