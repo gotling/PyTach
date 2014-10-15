@@ -3,7 +3,7 @@
 <head>
     <title>{{title or 'No title'}} | PyTach</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="icon" type="image/png" href="{{ url('static', filename='images/icon300.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ url('static', filename='images/icon152.png') }}">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
