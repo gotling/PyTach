@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="http://purecss.io/combo/1.15.4?/css/layouts/side-menu.css">
     <link rel="stylesheet" href="{{ url('static', filename='pytach.css') }}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <script src="{{ url('static', filename='microajax-mod.js') }}"></script>
 </head>
 <body>

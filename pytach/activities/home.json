@@ -65,6 +65,7 @@
         {
             "name": "yamaha_vol_up",
             "description": "Volume +~3",
+            "icon": "fa-volume-up",
             "commands": [
                 {
                     "device": "yamaha",
@@ -75,6 +76,7 @@
         {
             "name": "yamaha_vol_down",
             "description": "Volume -~3",
+            "icon": "fa-volume-down",
             "commands": [
                 {
                     "device": "yamaha",
@@ -85,6 +87,7 @@
         {
             "name": "yamaha_vol_down_down",
             "description": "Volume -~8",
+            "icon": "fa-volume-down",
             "commands": [
                 {
                     "device": "yamaha",
