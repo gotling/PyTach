@@ -13,4 +13,4 @@
 			The project is hosted on <a href="https://github.com/gotling/PyTach" target="_blank">GitHub</a> where you can get updates and submit bugs.
 		</p>
 
-		%rebase layout title="PyTach", devices=devices, activities=activities
+		%rebase('layout.tpl', title="PyTach", devices=devices, activities=activities)

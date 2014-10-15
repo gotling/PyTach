@@ -5,4 +5,4 @@
 			<button class="pure-button" onclick='post("{{ url('activity', activity=command_path) }}")'>{{command["description"] if "description" in command else command["name"]}}</button>
 		% end
 		</p>
-		%rebase layout title=activity["description"], devices=devices, activities=activities
+		%rebase('layout.tpl', title=activity["description"], devices=devices, activities=activities)
