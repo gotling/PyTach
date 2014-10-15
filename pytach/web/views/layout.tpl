@@ -42,7 +42,7 @@
         </div>
 
         <div class="content">
-            %include
+            {{!base}}
         </div>
     </div>
 </div>
