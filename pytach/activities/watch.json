@@ -65,10 +65,6 @@
                 {
                     "device": "multibrackets",
                     "command": "up"
-                },
-                {
-                    "device": "yamaha",
-                    "command": "cd"
                 }
             ]
         }
