@@ -6,6 +6,7 @@
             "name": "ps3",
             "description": "PS3",
             "css-class": "button-secondary",
+            "icon": "fa-play-circle",
             "commands": [
                 {
                     "device": "epson",
@@ -29,6 +30,7 @@
             "name": "pi",
             "description": "Raspbmc",
             "css-class": "pure-button-primary",
+            "icon": "fa-play-circle",
             "commands": [
                 {
                     "device": "epson",
@@ -52,6 +54,7 @@
             "name": "stop",
             "description": "Stop",
             "css-class": "button-error",
+            "icon": "fa-stop",
             "commands": [
                 {
                     "device": "epson",
