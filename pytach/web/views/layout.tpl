@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="{{ url('static', filename='images/icon300.png') }}">
     <link rel="apple-touch-icon-precomposed" href="{{ url('static', filename='images/icon152.png') }}">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
     <link rel="stylesheet" href="http://purecss.io/combo/1.15.4?/css/layouts/side-menu.css">
     <script src="{{ url('static', filename='microajax-mod.js') }}"></script>
     <style type="text/css">
