@@ -4,6 +4,7 @@ h1 a {
 }
 
 .pure-button {
+    line-height: 2em;
     margin-bottom: 1em;
 }
 
