@@ -21,16 +21,16 @@
 
     <div id="menu">
         <div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading" href="#">Devices</a>
-            <ul>
-                % for device_name in devices:
-                <li><a href="{{ url('device_view', device=device_name) }}">{{devices[device_name]["description"]}}</a></li>
-                % end
-            </ul>
             <a class="pure-menu-heading" href="#">Activities</a>
             <ul>
                 % for activity_name in activities:
                 <li><a href="{{ url('activity_view', activity=activity_name) }}">{{activities[activity_name]["description"]}}</a></li>
+                % end
+            </ul>
+            <a class="pure-menu-heading" href="#">Devices</a>
+            <ul>
+                % for device_name in devices:
+                <li><a href="{{ url('device_view', device=device_name) }}">{{devices[device_name]["description"]}}</a></li>
                 % end
             </ul>
         </div>
