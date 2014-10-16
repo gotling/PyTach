@@ -36,3 +36,14 @@ h1 a {
 .button-secondary {
     background: rgb(66, 184, 221); /* this is a light blue */
 }
+
+/* 48 em * 16 = 768 - 1 */
+@media (max-width: 767px) {
+    .header {
+        padding-top: 1em;
+    }
+
+    h2.content-subhead {
+        margin: 1em 0;
+    }
+}
