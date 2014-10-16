@@ -9,4 +9,4 @@
             </button>
 		% end
 		</div>
-		%rebase('layout.tpl', title=activity["description"], devices=devices, activities=activities)
+		%rebase('layout.tpl', title=activity["description"], subtitle=activity.get('subtitle'), devices=devices, activities=activities)
