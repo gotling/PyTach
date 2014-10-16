@@ -1,6 +1,7 @@
 {
     "name": "watch",
     "description": "Watch",
+    "subtitle": "Let's all just relax for a minute",
     "activities": [
         {
             "name": "ps3",

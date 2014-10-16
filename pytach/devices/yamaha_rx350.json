@@ -1,6 +1,7 @@
 {
     "name": "yamaha",
-    "description": "Yamaha RX350",
+    "description": "Yamaha",
+    "subtitle": "RX350",
     "commands": [
         {
             "name": "stereo",

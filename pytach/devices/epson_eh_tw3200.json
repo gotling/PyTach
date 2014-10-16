@@ -1,6 +1,7 @@
 {
     "name": "epson",
-    "description": "Epson EH TW3200",
+    "description": "Epson",
+    "subtitle": "EH TW3200",
     "commands": [
         {
             "name": "power",
