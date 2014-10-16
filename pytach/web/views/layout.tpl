@@ -38,8 +38,10 @@
 
     <div id="main">
         <div class="header">
-            <h1><a href="{{ url('main') }}">PyTach</a></h1>
-            <h2>An interface to iTach</h2>
+            <h1><a href="{{ url('main') }}">{{title or 'PyTach'}}</a></h1>
+            % if defined('subtitle') and subtitle:
+            <h2>{{ subtitle }}</h2>
+            % end
         </div>
 
         <div class="content">
