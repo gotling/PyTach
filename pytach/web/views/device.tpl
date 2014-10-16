@@ -1,4 +1,3 @@
-		<h2 class="content-subhead" id="{{device["name"]}}">{{device["description"]}}</h2>
 		<div class="pure-g">
 		% for command in device["commands"]:
 			% command_path = "{}/{}".format(device["name"], command["name"])

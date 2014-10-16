@@ -1,4 +1,3 @@
-		<h2 class="content-subhead" id="{{activity["name"]}}">{{activity["description"]}}</h2>
 		<div class="pure-g">
 		% for command in activity["activities"]:
 			% command_path = "{}/{}".format(activity["name"], command["name"])
