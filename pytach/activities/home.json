@@ -31,7 +31,7 @@
             "commands": [
                 {
                     "device": "multibrackets",
-                    "command": "down"
+                    "command": "up"
                 }
             ]
         },
