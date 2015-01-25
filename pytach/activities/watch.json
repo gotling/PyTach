@@ -4,6 +4,17 @@
     "subtitle": "Let's all just relax for a minute",
     "activities": [
         {
+            "name": "xbmc_pause",
+            "description": "Pause",
+            "icon": "fa-pause",
+            "commands": [
+                {
+                    "device": "xbmc",
+                    "command": "pause"
+                }
+            ]
+        },
+        {
             "name": "ps3",
             "description": "PS3",
             "css-class": "button-secondary",

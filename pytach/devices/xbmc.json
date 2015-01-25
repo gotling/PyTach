@@ -1,12 +1,75 @@
 {
     "name": "xbmc",
-    "description": "XBMC Media Center",
+    "description": "XBMC",
+    "subtitle": "Media Center",
     "commands": [
         {
+            "name": "back",
+            "icon": "fa-reply",
+            "description": "Back",
+            "type": "rest-post",
+            "code": "Input.Back"
+        },
+        {
+            "name": "up",
+            "css-class": "button-secondary",
+            "icon": "fa-caret-up",
+            "description": "Up",
+            "type": "rest-post",
+            "code": "Input.Up"
+        },
+        {
             "name": "pause",
-            "description": "Play/Pause",
+            "icon": "fa-pause",
+            "description": "Pause",
             "type": "rest-post",
             "code": "Player.PlayPause"
+        },
+        {
+            "name": "left",
+            "css-class": "button-secondary",
+            "icon": "fa-caret-left",
+            "description": "Left",
+            "type": "rest-post",
+            "code": "Input.Left"
+        },
+        {
+            "name": "ok",
+            "css-class": "button-success",
+            "icon": "fa-check",
+            "description": "OK",
+            "type": "rest-post",
+            "code": "Input.Select"
+        },
+        {
+            "name": "right",
+            "css-class": "button-secondary",
+            "icon": "fa-caret-right",
+            "description": "Right",
+            "type": "rest-post",
+            "code": "Input.Right"
+        },
+        {
+            "name": "skip-back",
+            "icon": "fa-backward",
+            "description": "Skip",
+            "type": "rest-post",
+            "code": "Player.Seek"
+        },
+        {
+            "name": "down",
+            "css-class": "button-secondary",
+            "icon": "fa-caret-down",
+            "description": "Down",
+            "type": "rest-post",
+            "code": "Input.Down"
+        },
+        {
+            "name": "skip-forward",
+            "icon": "fa-forward",
+            "description": "Skip",
+            "type": "rest-post",
+            "code": "Player.Seek"
         }
     ]
 }
