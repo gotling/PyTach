@@ -19,10 +19,7 @@
             "payload": {
                 "jsonrpc": "2.0",
                 "method": "{code}",
-                "id": 1,
-                "params": {
-                    "playerid": 1
-                }
+                "id": 1
             }
         }
     }
