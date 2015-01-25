@@ -25,6 +25,17 @@
             ]
         },
         {
+            "name": "epson_power",
+            "description": "Projector",
+            "icon": "fa-power-off",
+            "commands": [
+                {
+                    "device": "epson",
+                    "command": "power"
+                }
+            ]
+        },
+        {
             "name": "mb_up",
             "description": "Screen up",
             "icon": "fa-chevron-up",
@@ -43,17 +54,6 @@
                 {
                     "device": "multibrackets",
                     "command": "down"
-                }
-            ]
-        },
-        {
-            "name": "epson_power",
-            "description": "Projector",
-            "icon": "fa-power-off",
-            "commands": [
-                {
-                    "device": "epson",
-                    "command": "power"
                 }
             ]
         },
