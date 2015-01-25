@@ -45,6 +45,7 @@ def device_view(device):
 def device(device):
     device, command = device.split('/')
     try:
-        dispatch.device(device, command)
+        result = dispatch.device(device, command)
+        return result if result else ""
     except NameError, e:
         print "Input error:", e
