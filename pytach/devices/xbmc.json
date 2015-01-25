@@ -23,7 +23,10 @@
             "icon": "fa-pause",
             "description": "Pause",
             "type": "rest-post",
-            "code": "Player.PlayPause"
+            "code": "Player.PlayPause",
+            "params": {
+                "playerid": 1
+            }
         },
         {
             "name": "left",
@@ -54,7 +57,11 @@
             "icon": "fa-backward",
             "description": "Skip",
             "type": "rest-post",
-            "code": "Player.Seek"
+            "code": "Player.Seek",
+            "params": {
+                "playerid": 1,
+                "value": "smallbackward"
+            }
         },
         {
             "name": "down",
@@ -69,7 +76,18 @@
             "icon": "fa-forward",
             "description": "Skip",
             "type": "rest-post",
-            "code": "Player.Seek"
+            "code": "Player.Seek",
+            "params": {
+                "playerid": 1,
+                "value": "smallforward"
+            }
+        },
+        {
+            "name": "menu",
+            "icon": "fa-bars",
+            "description": "Menu",
+            "type": "rest-post",
+            "code": "Input.ShowOSD"
         }
     ]
 }
