@@ -1,0 +1,12 @@
+{
+    "name": "xbmc",
+    "description": "XBMC Media Center",
+    "commands": [
+        {
+            "name": "pause",
+            "description": "Play/Pause",
+            "type": "rest-post",
+            "code": "Player.PlayPause"
+        }
+    ]
+}

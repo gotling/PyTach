@@ -12,5 +12,18 @@
 	},
 	"arduino": {
 		"port": "/dev/ttyACM0"
-	}
+	},
+    "rest_client": {
+        "xbmc": {
+            "url": "http://pi/jsonrpc?{code}",
+            "payload": {
+                "jsonrpc": "2.0",
+                "method": "{code}",
+                "id": 1,
+                "params": {
+                    "playerid": 1
+                }
+            }
+        }
+    }
 }

@@ -2,6 +2,7 @@
 
 import itach
 import config
+from rest import client
 import reader
 
 devices = reader.read_path("devices")
@@ -34,20 +35,31 @@ def get_activity(group, activity_name):
         else:
             raise NameError("Activity group '%s' has no activity named '%s'" (group, activity_name))
     else:
-        raise NameError("Activity group '%s' does not exist" % activity)
+        raise NameError("Activity group '%s' does not exist" % group)
 
 def get_connection(device):
-    if config.config["itach"]["connection"].has_key(device):
-        return config.config["itach"]["connection"][device]
+    if device in config.config["itach"]["connection"]:
+        return {
+            u'type': "itach",
+            u'port': config.config["itach"]["connection"][device]
+        }
+    elif device in config.config["rest_client"]:
+        connection = {u'type': "rest"}
+        connection.update(config.config["rest_client"][device])
+        return connection
     else:
-        raise NameError("No connection configured for device '%s'" % name)
+        raise NameError("No connection configured for device '%s'" % device)
 
 def device(device_name, command_name):
     connection = get_connection(device_name)
     sub_command = get_command(device_name, command_name)
-    command = itach.build_command(1, connection, sub_command) 
-
-    send(command)
+    if connection["type"] == u"itach":
+        command = itach.build_command(1, connection, sub_command)
+        send(command)
+    elif connection["type"] == u"rest":
+        client.send(sub_command, connection)
+    else:
+        raise NameError("Unknown type '%s'" % connection["type"])
 
 def activity(activity_group, activity_name):
     activity = get_activity(activity_group, activity_name)
