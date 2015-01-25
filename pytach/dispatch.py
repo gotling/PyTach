@@ -21,7 +21,7 @@ def get_command(device, command_name):
     if devices.has_key(device):
         command = next((item for item in devices[device]["commands"] if item["name"] == command_name), False)
         if command:
-            return command["code"]
+            return command
         else:
             raise NameError("Device '%s' has no command named '%s'" % (device, command_name))
     else:
@@ -52,12 +52,12 @@ def get_connection(device):
 
 def device(device_name, command_name):
     connection = get_connection(device_name)
-    sub_command = get_command(device_name, command_name)
+    command = get_command(device_name, command_name)
     if connection["type"] == u"itach":
-        command = itach.build_command(1, connection, sub_command)
+        command = itach.build_command(1, connection, command["code"])
         send(command)
     elif connection["type"] == u"rest":
-        client.send(sub_command, connection)
+        return client.send(command, connection)
     else:
         raise NameError("Unknown type '%s'" % connection["type"])
 
