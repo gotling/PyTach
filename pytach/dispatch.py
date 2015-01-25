@@ -54,8 +54,7 @@ def device(device_name, command_name):
     connection = get_connection(device_name)
     command = get_command(device_name, command_name)
     if connection["type"] == u"itach":
-        command = itach.build_command(1, connection, command["code"])
-        send(command)
+        send(itach.build_command(1, connection["port"], command["code"]))
     elif connection["type"] == u"rest":
         return client.send(command, connection)
     else:
