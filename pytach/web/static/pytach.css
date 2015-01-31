@@ -1,6 +1,30 @@
+body.dark {
+    background: #222;
+}
+
+.dark h1 {
+    color: #fff;
+}
+
+.dark h1 a, .dark h1 a:visited {
+    color: #fff;
+}
+
+.dark a, .dark a:active, .dark a:focus, .dark a:visited {
+    color: #1f8dd6;
+}
+
+.dark a:hover {
+    color: #0A5789;
+}
+
 h1 a {
     text-decoration: none;
     color: #333
+}
+
+.dark .header {
+    border-bottom: 1px solid #111;
 }
 
 .content {
@@ -15,10 +39,19 @@ h1 a {
     text-align: center;
 }
 
+.dark #menu .pure-menu-heading {
+    background-color: #166396;
+}
+
 .pure-button {
     line-height: 3em;
     margin-bottom: 1em;
     width: 90%;
+}
+
+.dark .pure-button {
+    background: #3B3B3B;
+    color: #E6E6E6;
 }
 
 .button-success,
@@ -30,20 +63,40 @@ h1 a {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
+.dark .pure-button-primary {
+    background: #0057A7;
+}
+
 .button-success {
     background: rgb(28, 184, 65); /* this is a green */
+}
+
+.dark .button-success {
+    background: #12782A;
 }
 
 .button-error {
     background: rgb(202, 60, 60); /* this is a maroon */
 }
 
+.dark .button-error {
+    background: #8A2929;
+}
+
 .button-warning {
     background: rgb(223, 117, 20); /* this is an orange */
 }
 
+.dark .button-warning {
+    background: #9F540E;
+}
+
 .button-secondary {
     background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+.dark .button-secondary {
+    background: #2F839D;
 }
 
 /* 48 em * 16 = 768 - 1 */

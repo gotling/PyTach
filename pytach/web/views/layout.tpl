@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <script src="{{ url('static', filename='microajax-mod.js') }}"></script>
 </head>
-<body>
+<body class="dark">
 <div id="layout">
     <a href="#menu" id="menuLink" class="menu-link">
         <span></span>
