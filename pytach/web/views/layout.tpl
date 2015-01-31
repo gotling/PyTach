@@ -4,6 +4,8 @@
     <title>{{title or 'No title'}} | PyTach</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ url('static', filename='images/favicon/apple-touch-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ url('static', filename='images/favicon/apple-touch-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ url('static', filename='images/favicon/apple-touch-icon-72x72.png') }}">
@@ -72,6 +74,8 @@
             console.log("POST: " + url + " Result: " + res);
         }, "{}");
     }
+
+    window.scrollTo(0,1);
 </script>
 </body>
 </html>
