@@ -18,10 +18,8 @@
     <link rel="icon" type="image/png" href="/static/images/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="/static/images/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/static/images/favicon/android-chrome-manifest.json">
-    <link rel="shortcut icon" href="/static/images/favicon/favicon.ico">
-    <meta name="msapplication-TileColor" content="#666d75">
-    <meta name="msapplication-TileImage" content="/static/images/favicon/mstile-144x144.png">
-    <meta name="msapplication-config" content="/static/images/favicon/browserconfig.xml">
+    <meta name="msapplication-TileColor" content="#0c0c0c">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
