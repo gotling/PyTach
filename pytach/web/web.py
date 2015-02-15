@@ -6,7 +6,7 @@ import bottle
 import string
 import inspect
 
-from bottle import static_file, template, url
+from bottle import static_file, template, url, request
 
 import dispatch
 
@@ -19,7 +19,7 @@ bottle.BaseTemplate.defaults['url'] = url
 
 @app.route('/', name='main')
 def main():
-    return template('main', devices=dispatch.devices, activities=dispatch.activities)
+    return template('main', devices=dispatch.devices, activities=dispatch.activities, request=request)
 
 @app.route('/static/<filename:path>', name='static')
 def static(filename):
@@ -27,7 +27,7 @@ def static(filename):
 
 @app.route('/activity/<activity>', name='activity_view', method='GET')
 def activity_view(activity):
-    return template('activity', activity=dispatch.activities[activity], devices=dispatch.devices, activities=dispatch.activities)
+    return template('activity', activity=dispatch.activities[activity], devices=dispatch.devices, activities=dispatch.activities, request=request)
 
 @app.route('/activity/<activity:path>', name='activity', method='POST')
 def activity(activity):
@@ -39,7 +39,7 @@ def activity(activity):
 
 @app.route('/device/<device>', name='device_view', method='GET')
 def device_view(device):
-    return template('device', device=dispatch.devices[device], devices=dispatch.devices, activities=dispatch.activities)
+    return template('device', device=dispatch.devices[device], devices=dispatch.devices, activities=dispatch.activities, request=request)
 
 @app.route('/device/<device:path>', name='device', method='POST')
 def device(device):

@@ -3,7 +3,7 @@
 <head>
     <title>{{title or 'No title'}} | PyTach</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ url('static', filename='images/favicon/apple-touch-icon-57x57.png') }}">
@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <script src="{{ url('static', filename='stay-standalone.js') }}"></script>
     <script src="{{ url('static', filename='microajax-mod.js') }}"></script>
+    <script src="{{ url('static', filename='hammer.min.js') }}"></script>
 </head>
 <body class="dark">
 <div id="layout">
@@ -77,6 +78,35 @@
     }
 
     window.scrollTo(0,1);
+
+    var main = document.getElementById('main');
+    var mc = new Hammer(main);
+
+    <%
+    pages = [url('activity_view', activity=activity_name) for activity_name in activities]
+    pages.extend([url('device_view', device=device_name) for device_name in devices])
+    %>
+    var pages = {{ !pages }};
+    var page_index = 0;
+    for (var index in pages) {
+        if (pages[index] == "{{ request.path }}") {
+            page_index = index;
+        }
+    }
+
+    mc.on("panleft panright", function(ev) {
+        if (ev.type == "panleft") {
+            if (page_index < pages.length -1) {
+                page_index++;
+                window.location.href = pages[page_index];
+            }
+        } else if (ev.type == "panright") {
+            if (page_index > 0) {
+                page_index--;
+                window.location.href = pages[page_index];
+            }
+        }
+    });
 </script>
 </body>
 </html>
