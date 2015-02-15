@@ -94,17 +94,13 @@
     %>
     var pages = {{ !pages }};
     var page_index = 0;
-    var debugString = "";
     for (var index in pages) {
-        debugString += pages[index] + ", ";
         if (pages[index].endsWith("{{ request.path }}")) {
             page_index = index;
         }
     }
-    debug.textContent = "{{ request.path }} in " + debugString;
 
     mc.on("swipeleft swiperight", function(ev) {
-        debug.textContent = ev.type + " p: " + page_index;
         if (ev.type == "swipeleft") {
             if (page_index < pages.length -1) {
                 page_index++;
