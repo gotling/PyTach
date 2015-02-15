@@ -61,6 +61,7 @@
             % if defined('subtitle') and subtitle:
             <h2>{{ subtitle }}</h2>
             % end
+            <span id="debug"></span>
         </div>
 
         <div class="content">
@@ -84,6 +85,7 @@
     window.scrollTo(0,1);
 
     var main = document.getElementById('main');
+    var debug = document.getElementById('debug');
     var mc = new Hammer(main);
 
     <%
@@ -97,14 +99,16 @@
             page_index = index;
         }
     }
+    debug.textContent = "{{ request.path }}";
 
-    mc.on("panleft panright", function(ev) {
-        if (ev.type == "panleft") {
+    mc.on("swipeleft swiperight", function(ev) {
+        debug.textContent = ev.type + " p: " + page_index;
+        if (ev.type == "swipeleft") {
             if (page_index < pages.length -1) {
                 page_index++;
                 window.location.href = pages[page_index];
             }
-        } else if (ev.type == "panright") {
+        } else if (ev.type == "swiperight") {
             if (page_index > 0) {
                 page_index--;
                 window.location.href = pages[page_index];
