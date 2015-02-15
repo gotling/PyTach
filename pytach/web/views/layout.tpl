@@ -77,6 +77,10 @@
         }, "{}");
     }
 
+    String.prototype.endsWith = function(suffix) {
+        return this.indexOf(suffix, this.length - suffix.length) !== -1;
+    };
+
     window.scrollTo(0,1);
 
     var main = document.getElementById('main');
@@ -89,7 +93,7 @@
     var pages = {{ !pages }};
     var page_index = 0;
     for (var index in pages) {
-        if (pages[index] == "{{ request.path }}") {
+        if ("{{ request.path }}".endsWith(pages[index])) {
             page_index = index;
         }
     }
