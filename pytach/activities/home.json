@@ -3,30 +3,8 @@
     "description": "Home",
     "activities": [
         {
-            "name": "nexa1_on",
-            "description": "Lamps ON",
-            "icon": "fa-lightbulb-o",
-            "commands": [
-                {
-                    "device": "nexa",
-                    "command": "1:on"
-                }
-            ]
-        },
-        {
-            "name": "nexa1_off",
-            "description": "Lamps OFF",
-            "icon": "fa-lightbulb-o",
-            "commands": [
-                {
-                    "device": "nexa",
-                    "command": "1:off"
-                }
-            ]
-        },
-        {
             "name": "epson_power",
-            "description": "Projector",
+            "description": "Proj.",
             "icon": "fa-power-off",
             "commands": [
                 {
@@ -36,19 +14,30 @@
             ]
         },
         {
-            "name": "mb_up",
-            "description": "Screen up",
-            "icon": "fa-chevron-up",
+            "name": "nexa1_off",
+            "description": "OFF",
+            "icon": "fa-lightbulb-o",
             "commands": [
                 {
-                    "device": "multibrackets",
-                    "command": "up"
+                    "device": "nexa",
+                    "command": "1:off"
+                }
+            ]
+        },
+        {
+            "name": "nexa1_on",
+            "description": "ON",
+            "icon": "fa-lightbulb-o",
+            "commands": [
+                {
+                    "device": "nexa",
+                    "command": "1:on"
                 }
             ]
         },
         {
             "name": "mb_down",
-            "description": "Screen down",
+            "description": "Up",
             "icon": "fa-chevron-down",
             "commands": [
                 {
@@ -58,19 +47,44 @@
             ]
         },
         {
-            "name": "yamaha_vaux",
-            "description": "Pi Sound",
+            "name": "mb_stop",
+            "description": "Stop",
+            "icon": "fa-stop",
+            "commands": [
+                {
+                    "device": "multibrackets",
+                    "command": "stop"
+                }
+            ]
+        },
+        {
+            "name": "mb_up",
+            "description": "Down",
+            "icon": "fa-chevron-up",
+            "commands": [
+                {
+                    "device": "multibrackets",
+                    "command": "up"
+                }
+            ]
+        },
+        {
+            "name": "yamaha_vol_down",
+            "description": "",
+            "icon": "fa-volume-down",
+            "css-class": "button-success",
             "commands": [
                 {
                     "device": "yamaha",
-                    "command": "vaux"
+                    "command": "vol_down"
                 }
             ]
         },
         {
             "name": "yamaha_vol_up",
-            "description": "Volume +3",
+            "description": "",
             "icon": "fa-volume-up",
+            "css-class": "button-success",
             "commands": [
                 {
                     "device": "yamaha",
@@ -79,13 +93,45 @@
             ]
         },
         {
-            "name": "yamaha_vol_down",
-            "description": "Volume -3",
-            "icon": "fa-volume-down",
+            "name": "pause",
+            "icon": "fa-pause",
+            "css-class": "button-secondary",
+            "description": "Pause",
+            "type": "rest-post",
+            "code": "Player.PlayPause",
+            "params": {
+                "playerid": 1
+            }
+        },
+        {
+            "name": "skip-back",
+            "icon": "fa-backward",
+            "css-class": "button-secondary",
+            "description": "Skip",
+            "type": "rest-post",
+            "code": "Player.Seek",
+            "params": {
+                "playerid": 1,
+                "value": "smallbackward"
+            }
+        },
+        {
+            "name": "yamaha_vaux",
+            "description": "pi",
             "commands": [
                 {
                     "device": "yamaha",
-                    "command": "vol_down"
+                    "command": "vaux"
+                }
+            ]
+        },
+        {
+            "name": "yamaha_cd",
+            "description": "Squeeze",
+            "commands": [
+                {
+                    "device": "yamaha",
+                    "command": "cd"
                 }
             ]
         }
