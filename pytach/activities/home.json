@@ -37,7 +37,7 @@
         },
         {
             "name": "mb_down",
-            "description": "Up",
+            "description": "Down",
             "icon": "fa-chevron-down",
             "commands": [
                 {
@@ -59,7 +59,7 @@
         },
         {
             "name": "mb_up",
-            "description": "Down",
+            "description": "Up",
             "icon": "fa-chevron-up",
             "commands": [
                 {
