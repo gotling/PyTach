@@ -7,7 +7,7 @@ import struct
 
 from config import config
 
-base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],";
+base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],"
 
 def build_command(module, connection, sub_command, repeat=3):
     command = base_command + sub_command
@@ -39,10 +39,10 @@ def send_command(command):
         break
 
     if s is None:
-        print "Socket errer:", msg
+        print("Socket errer:", msg)
         return
 
-    s.sendall(command)
+    s.sendall(command.encode('utf-8'))
     data = s.recv(1024)
     s.close()
 
@@ -69,17 +69,17 @@ def discover():
             data = s.recv(1024)
             match = p.match(data)
             if match:
-                print "iTach found!"
-                print "IP:\t\t%s" % match.group('IP')
-                print "UUID:\t\t%s" % match.group('UUID')
-                print "Model:\t\t%s" % match.group('Model')
-                print "Revision:\t%s" % match.group('Revision')
-                print "Part number:\t%s" % match.group('PN')
-                print "Status:\t\t%s" % match.group('Status')
+                print("iTach found!")
+                print("IP:\t\t%s" % match.group('IP'))
+                print("UUID:\t\t%s" % match.group('UUID'))
+                print("Model:\t\t%s" % match.group('Model'))
+                print("Revision:\t%s" % match.group('Revision'))
+                print("Part number:\t%s" % match.group('PN'))
+                print("Status:\t\t%s" % match.group('Status'))
 
                 return
         except socket.timeout:
-            print "Could not find an iTach on the network"
+            print("Could not find an iTach on the network")
         finally:
             s.close()
             return

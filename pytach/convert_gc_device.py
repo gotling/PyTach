@@ -27,8 +27,8 @@ def convert_gc (filename, name, description):
 			if row != []:
 				if row[0] != 'function':
 	 				if debug:
-						print row[0]
-						print row[1]
+						print(row[0])
+						print(row[1])
 	                                command, row[1] = row[1].partition(',')[::2]
 	                                address, row[1] = row[1].partition(',')[::2]
 	                                ID, row[1] = row[1].partition(',')[::2]
@@ -36,14 +36,14 @@ def convert_gc (filename, name, description):
 	                                repeat, row[1] = row[1].partition(',')[::2]
 					a = dict(name=row[0].replace(' ','_'), description=row[0].lower(), code=row[1].rstrip())
 	                                if debug:
-						print a['name']
-						print a['code']
+						print(a['name'])
+						print(a['code'])
 					commands.append(a)
 			
 	file = dict(name=name, description=description, commands=commands)
 	if debug:
-		print commands
-		print file
+		print(commands)
+		print(file)
 
 	with open(basename+'.json', 'w') as outfile:
     		json.dump(file, outfile,indent=1)

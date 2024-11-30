@@ -10,7 +10,7 @@ activities = reader.read_path("activities")
 
 def log(prompt, command):
     if config.arguments['--verbose']:
-        print prompt, command
+        print(prompt, command)
 
 def send(command):
     log(">", command)
@@ -18,7 +18,7 @@ def send(command):
     log("<", result)
 
 def get_command(device, command_name):
-    if devices.has_key(device):
+    if device in devices:
         command = next((item for item in devices[device]["commands"] if item["name"] == command_name), False)
         if command:
             return command
@@ -28,12 +28,12 @@ def get_command(device, command_name):
         raise NameError("Device '%s' deos not exist" % device)
 
 def get_activity(group, activity_name):
-    if activities.has_key(group):
+    if group in activities:
         activity = next((item for item in activities[group]["activities"] if item["name"] == activity_name), False)
         if activity:
             return activity
         else:
-            raise NameError("Activity group '%s' has no activity named '%s'" (group, activity_name))
+            raise NameError("Activity group '%s' has no activity named '%s'" % (group, activity_name))
     else:
         raise NameError("Activity group '%s' does not exist" % group)
 

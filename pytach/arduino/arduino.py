@@ -15,14 +15,14 @@ def send(text):
     #print ser.readline()
     text += '\n'
     ser.write(text)
-    print ">", text
+    print(">", text)
     ser.close()
 
 def read():
     try:
         while True:
             line = ser.readline().strip()
-            print "<", line
+            print("<", line)
             if (len(line.split()) == 3):
                 switch, group, command = line.split()
                 if switch == "device":
@@ -35,15 +35,15 @@ def read():
                     elif (command == "5EA119E6"):
                         dispatch.activity("watch", "stop")
     except KeyboardInterrupt:
-        print "Terminated by user"
+        print("Terminated by user")
     finally:
         ser.close()
 
 def send_and_read():
-    print 'Type "quit" to exit'
+    print('Type "quit" to exit')
     #print "<", ser.readline()
     text = ""
     while text != "quit":
-        text = raw_input("> ")
+        text = input("> ")
         ser.write(text + '\n')
-        print "<", ser.readline().strip()
+        print("<", ser.readline().strip())

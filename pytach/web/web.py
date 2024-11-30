@@ -34,8 +34,8 @@ def activity(activity):
     activity, command = activity.split('/')
     try:
         dispatch.activity(activity, command)
-    except NameError, e:
-        print "Input error:", e
+    except NameError as e:
+        print("Input error:", e)
 
 @app.route('/device/<device>', name='device_view', method='GET')
 def device_view(device):
@@ -47,5 +47,5 @@ def device(device):
     try:
         result = dispatch.device(device, command)
         return result if result else ""
-    except NameError, e:
-        print "Input error:", e
+    except NameError as e:
+        print("Input error:", e)

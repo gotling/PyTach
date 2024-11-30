@@ -35,20 +35,20 @@ import config
 import dispatch
 
 def list_devices():
-    print "Devices:"
+    print("Devices:")
     for device in dispatch.devices:
         commands = []
         for command in dispatch.devices[device]["commands"]:
             commands.append(command["name"])
-        print "\t%s (%s)" % (device.ljust(15), ", ".join(commands))
+        print("\t%s (%s)" % (device.ljust(15), ", ".join(commands)))
 
 def list_activities():
-    print "Activities:"
+    print("Activities:")
     for activity in dispatch.activities:
         commands = []
         for command in dispatch.activities[activity]["activities"]:
             commands.append(command["name"])
-        print "\t%s (%s)" % (activity.ljust(15), ", ".join(commands))
+        print("\t%s (%s)" % (activity.ljust(15), ", ".join(commands)))
 
 def web():
     import web.web as web
@@ -66,8 +66,8 @@ def arduino(arguments):
         jobs.append(p)
         p.start()
         p.join();
-        print "Arduino listener started"
-        raw_input("Use keyboard interupt to exit (CTRL + C).\n")
+        print("Arduino listener started")
+        input("Use keyboard interupt to exit (CTRL + C).\n")
 
 def activity_device(arguments):
     try:
@@ -75,9 +75,9 @@ def activity_device(arguments):
             dispatch.device(arguments['<device>'], arguments['<command>']);
         elif arguments['activity']:
             dispatch.activity(arguments['<activity>'], arguments['<command>'])
-    except NameError, e:
-        print "Input error:", e
-        print "Use 'pytach.py --help' to list available commands"
+    except NameError as e:
+        print("Input error:", e)
+        print("Use 'pytach.py --help' to list available commands")
 
 def main():
     arguments = docopt(__doc__, version='PyTach 0.1')

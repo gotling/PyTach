@@ -1,4 +1,4 @@
-requests==2.5.1
-bottle==0.12.7
+requests==2.32.3
+bottle==0.13.2
 docopt==0.6.2
-pyserial==2.7
+pyserial==3.5
