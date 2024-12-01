@@ -9,7 +9,7 @@ from config import config
 
 base_command = "sendir,[MODULE]:[CONNECTION],1,38000,[REPEAT],"
 
-def build_command(module, connection, sub_command, repeat=3):
+def build_command(module, connection, sub_command, repeat=10):
     command = base_command + sub_command
     command = command.replace("[MODULE]", str(module))
     command = command.replace("[CONNECTION]", str(connection))
