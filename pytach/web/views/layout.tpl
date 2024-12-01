@@ -23,9 +23,9 @@
     <meta name="msapplication-TileColor" content="#0c0c0c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
-    <link rel="stylesheet" href="http://purecss.io/combo/1.15.4?/css/layouts/side-menu.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://pure-css.github.io/layouts/side-menu/styles.css">
     <link rel="stylesheet" href="{{ url('static', filename='pytach.css') }}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <script src="{{ url('static', filename='stay-standalone.js') }}"></script>
@@ -41,15 +41,15 @@
     <div id="menu">
         <div class="pure-menu pure-menu-open">
             <a class="pure-menu-heading" href="#">Activities</a>
-            <ul>
+            <ul class="pure-menu-list">
                 % for activity_name in activities:
-                <li><a href="{{ url('activity_view', activity=activity_name) }}">{{activities[activity_name]["description"]}}</a></li>
+                <li class="pure-menu-item"><a href="{{ url('activity_view', activity=activity_name) }}" class="pure-menu-link">{{activities[activity_name]["description"]}}</a></li>
                 % end
             </ul>
             <a class="pure-menu-heading" href="#">Devices</a>
-            <ul>
+            <ul class="pure-menu-list">
                 % for device_name in devices:
-                <li><a href="{{ url('device_view', device=device_name) }}">{{devices[device_name]["description"]}}</a></li>
+                <li class="pure-menu-item"><a href="{{ url('device_view', device=device_name) }}" class="pure-menu-link">{{devices[device_name]["description"]}}</a></li>
                 % end
             </ul>
         </div>
@@ -70,7 +70,7 @@
     </div>
 </div>
 
-<script src="http://purecss.io/combo/1.15.4?/js/ui.js"></script>
+<script src="https://pure-css.github.io/js/ui.js"></script>
 <script>
     function post(url) {
         microAjax(url, function(res) {
