@@ -14,7 +14,7 @@ Command line usage
 ### Control device
 	pytach.py device <device> <command>
 
-List available devicese with *pytach.py --help*
+List available devices with *pytach.py --help*
 
 ### Activity
 	pytach.py activity <activity> <command>
@@ -24,13 +24,32 @@ List available activities with *pytach.py --help*
 ### Start web server
 	pytach.py --web
 
-Accessible on [localhost:8080](http://localhost:8080)
+Accessible on [localhost:8099](http://localhost:8099)
 
 ### Start Arduino listener
 	pytach.py --arduino
 
 Installation
 ================
+Home Assistant
+----------------
+Clone repoistory to you *addons* folder.
+In Home Assistant, open Add-ons and install.
+
+Web UI will be available on `host:8000`.
+
+Make devices and commands available by editing *configuration.yaml* listing commands like this:
+
+```
+rest_command:
+  nexa_1_on:
+    url: "http://localhost:8000/device/nexa/1:on"
+    method: post
+  nexa_1_off:
+    url: "http://localhost:8000/device/nexa/1:off"
+    method: post
+```
+
 Debian
 ----------------
 
@@ -42,7 +61,7 @@ Debian
 
 Standalone development server
 ----------------
-Make PyTach available at *http://server:8080*
+Make PyTach available at *http://server:8099*
 
 	ln -s /opt/PyTach/scripts/pytach-init.sh /etc/init.d/pytach
 	chmod +x /etc/init.d/pytach
