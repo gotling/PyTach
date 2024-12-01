@@ -52,7 +52,7 @@ def list_activities():
 
 def web():
     import web.web as web
-    web.app.run(host='0.0.0.0', debug=True)
+    web.app.run(host='0.0.0.0', port=8099, debug=True)
 
 def arduino(arguments):
     jobs = []

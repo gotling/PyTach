@@ -14,6 +14,14 @@ static_path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfra
 bottle.TEMPLATE_PATH.insert(0, os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))) +'/views')
 
 app = application = bottle.Bottle()
+
+from bottle import BaseTemplate
+mount_path = os.getenv("APP_MOUNT_PATH", "/text")
+
+BaseTemplate.defaults['APP_MOUNT_PATH'] = mount_path
+application.config['APP_MOUNT_PATH'] = mount_path
+application.mount(mount_path,  app)
+
 bottle.default_app.push(app)
 bottle.BaseTemplate.defaults['url'] = url
 

@@ -23,6 +23,7 @@
     <meta name="msapplication-TileColor" content="#0c0c0c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    <base href="{{ APP_MOUNT_PATH }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
     <link rel="stylesheet" href="https://pure-css.github.io/layouts/side-menu/styles.css">

@@ -1,6 +1,6 @@
 {
 	"itach": {
-		"host": "192.168.0.22",
+		"host": "10.0.0.122",
 		"port": 4998,
 		"timeout": 2,
 		"connection": {
